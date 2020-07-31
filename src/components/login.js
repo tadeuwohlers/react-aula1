@@ -5,11 +5,13 @@ class Login extends Component{
     constructor(props){
         super(props);
         this.state = {
-            status: true
+            status: false,
+            email: 'teste@teste.com',
+            password: '123321'
         };
 
-        //this.sair = this.sair.bind(this);
-        //this.entrar = this.entrar.bind(this);
+        this.trocarEmail = this.trocarEmail.bind(this);
+        this.trocarSenha = this.trocarSenha.bind(this);
     }    
 
     sair() {
@@ -18,6 +20,16 @@ class Login extends Component{
 
     entrar() {
         this.setState({status: true});
+    }
+
+    trocarEmail(e) {
+        let email = e.target.value;
+        this.setState({email: email});
+    }
+
+    trocarSenha(e) {
+        let password = e.target.value;
+        this.setState({password: password});
     }
 
     render() {
@@ -31,7 +43,9 @@ class Login extends Component{
                     </div>
                     :
                     <div>
-                        <h1>Não Logado</h1>
+                        <h1>Logar</h1>
+                        E-mail: <input type="email" nome="email" value={this.state.email} onChange={this.trocarEmail}/><br/>
+                        Senha: <input type="password" nome="password" value={this.state.password} onChange={this.trocarSenha}/><br/>
                         <button onClick={ () => this.entrar()}>Entrar</button>
                     </div>
                 }

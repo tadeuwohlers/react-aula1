@@ -3,11 +3,15 @@ import Contador from './Contador';
 import Membro from './components/Membro';
 import Login from './components/login';
 import Feed from './components/feed';
+import User from './components/user';
 
 function App() {
     return (
         <div>
             <Login />
+            <hr/>
+
+            <User />
             <hr/>
 
             <h1>Contador</h1>
